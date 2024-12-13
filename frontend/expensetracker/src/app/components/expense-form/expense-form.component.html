@@ -1,0 +1,16 @@
+<div class="expense-form">
+  <h2>{{ id ? "Edit Expense" : "Add Expense" }}</h2>
+
+  <form (ngSubmit)="saveExpense()">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="name" name="name" required />
+    </div>
+    <div>
+      <label for="amount">Amount</label>
+      <input type="number" [(ngModel)]="amount" name="amount" required />
+    </div>
+    <button type="submit">{{ id ? "Save Changes" : "Add Expense" }}</button>
+  </form>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

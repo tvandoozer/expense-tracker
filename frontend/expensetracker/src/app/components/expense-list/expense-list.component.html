@@ -1,0 +1,18 @@
+<div class="expense-list">
+  <h2>Expense List</h2>
+  <button (click)="router.navigate(['/add-expense'])">Add Expense</button>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading && expenses.length === 0">No expenses found</div>
+
+  <ul *ngIf="!loading">
+    <li *ngFor="let expense of expenses">
+      <div>
+        <span>{{ expense.name }}</span>
+        <span>{{ expense.amount | currency }}</span>
+        <button (click)="editExpense(expense._id)">Edit</button>
+        <button (click)="deleteExpense(expense._id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
